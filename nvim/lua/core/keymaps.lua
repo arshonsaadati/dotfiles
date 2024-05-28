@@ -58,5 +58,3 @@ vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references")
 vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', { noremap = true, silent = true })
 -- delete line with space d
 vim.keymap.set('n', '<leader>d', '"_dd')
-
-
