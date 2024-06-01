@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local utils = require("utils")
---local keybinds = require("keybinds")
+local keybinds = require("keybinds")
 local scheme = wezterm.get_builtin_color_schemes()["nord"]
 local gpus = wezterm.gui.enumerate_gpus()
 require("on")
@@ -121,7 +121,7 @@ local config = {
         top = 0,
         bottom = 0,
     },
-    use_fancy_tab_bar = false,
+    use_fancy_tab_bar = true,
     colors = {
         tab_bar = {
             background = scheme.background,
@@ -147,9 +147,9 @@ local config = {
     -- separate <Tab> <C-i>
     enable_csi_u_key_encoding = true,
     leader = { key = "Space", mods = "CTRL|SHIFT" },
-    -- keys = keybinds.create_keybinds(),
-    -- key_tables = keybinds.key_tables,
-    -- mouse_bindings = keybinds.mouse_bindings,
+    keys = keybinds.create_keybinds(),
+    key_tables = keybinds.key_tables,
+    mouse_bindings = keybinds.mouse_bindings,
     -- https://github.com/wez/wezterm/issues/2756
     webgpu_preferred_adapter = gpus[1],
     front_end = "OpenGL",
