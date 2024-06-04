@@ -76,7 +76,16 @@ require("lazy").setup({
     },
     {
         "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && npm install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    },
+    {
+        'renerocksai/telekasten.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim', "nvim-telekasten/calendar-vim" }
     },
     {
         "nvim-telescope/telescope.nvim",
