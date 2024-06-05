@@ -16,7 +16,7 @@ M.tmux_keybinds = {
     --{ key = "k", mods = "ALT|CTRL", action = act.ActivateCopyMode },
     {
         key = "k",
-        mods = "CTRL",
+        mods = "CTRL|ALT",
         action = act.Multiple({ act.CopyMode("ClearSelectionMode"), act.ActivateCopyMode, act.ClearSelection }),
     },
     { key = "j",     mods = "ALT|CTRL",  action = act({ PasteFrom = "PrimarySelection" }) },
