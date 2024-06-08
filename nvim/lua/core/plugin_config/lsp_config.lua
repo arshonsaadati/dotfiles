@@ -42,7 +42,19 @@ require("lspconfig").lua_ls.setup {
         },
     }
 }
-
+-- Change this to your actual download path.
+--local path_to_download = '/Users/arshonsaadati/Documents/omnisharp-osx'
+--
+--require('lspconfig').omnisharp.setup {
+--    cmd = {
+--        'mono',
+--        '--assembly-loader=strict',
+--        path_to_download .. '/omnisharp/OmniSharp.exe',
+--    },
+--    -- Assuming you have an on_attach function. Delete this line if you don't.
+--    on_attach = on_attach,
+--    use_mono = true,
+--}
 require("lspconfig").clangd.setup({})
 require("lspconfig").rust_analyzer.setup({})
 require("lspconfig").pyright.setup({})
