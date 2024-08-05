@@ -18,6 +18,11 @@ require("lazy").setup({
     "tpope/vim-surround",
     "stevearc/oil.nvim",
     {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
+    {
         "kawre/leetcode.nvim",
         build = ":TSUpdate html",
         dependencies = {
