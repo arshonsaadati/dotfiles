@@ -55,13 +55,6 @@ require("lspconfig").lua_ls.setup {
 --    on_attach = on_attach,
 --    use_mono = true,
 --}
-require("lspconfig").clangd.setup({
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
-    cmd = {
-        "clangd",
-        "--offset-encoding=utf-16",
-    },
-})
 require("lspconfig").rust_analyzer.setup({})
 require("lspconfig").pyright.setup({})
 require("lspconfig").tsserver.setup({})

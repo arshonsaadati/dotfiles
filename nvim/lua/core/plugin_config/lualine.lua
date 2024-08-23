@@ -6,9 +6,7 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_c = { {
+        lualine_b = { {
             'filename',
             file_status = true,     -- Displays file status (readonly status, modified status)
             newfile_status = false, -- Display new file status (new file means no write after created)
@@ -27,6 +25,8 @@ require('lualine').setup {
                 newfile = '[New]',     -- Text to show for newly created file before first write
             } }
         },
+        lualine_c = { 'branch', 'diff', 'diagnostics' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
     },
