@@ -55,6 +55,26 @@ require("lspconfig").lua_ls.setup {
 --    on_attach = on_attach,
 --    use_mono = true,
 --}
+require("lspconfig").clangd.setup {
+    cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+        "--background-index",
+        "--fallback-style=google",
+        "--all-scopes-completion",
+        "--completion-style=detailed",
+        "--header-insertion=iwyu",
+        "--pch-storage=memory",
+    },
+    filetypes = { "c", "cpp", "objc", "objcpp" },
+    root_dir = function(fname)
+        return require("lspconfig.util").root_pattern(
+            "compile_commands.json",
+            "compile_flags.txt",
+            ".git"
+        )(fname) or vim.fn.getcwd()
+    end,
+}
 require("lspconfig").rust_analyzer.setup({})
 require("lspconfig").pyright.setup({})
 require("lspconfig").tsserver.setup({})
