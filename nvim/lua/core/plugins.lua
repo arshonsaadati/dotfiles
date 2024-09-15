@@ -18,6 +18,11 @@ require("lazy").setup({
     "tpope/vim-surround",
     "stevearc/oil.nvim",
     {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
+    {
         "kawre/leetcode.nvim",
         build = ":TSUpdate html",
         dependencies = {
@@ -66,6 +71,15 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "mfussenegger/nvim-dap-python",
+            "nvim-neotest/nvim-nio",
+            "theHamsta/nvim-dap-virtual-text",
+        }
+    },
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" }
