@@ -6,6 +6,7 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
     "ellisonleao/gruvbox.nvim",
+    "norcalli/nvim-colorizer.lua",
     "dracula/vim",
     "nvim-lualine/lualine.nvim",
     "nvim-treesitter/nvim-treesitter",
@@ -16,6 +17,16 @@ require("lazy").setup({
     "christoomey/vim-tmux-navigator",
     "tpope/vim-fugitive",
     "tpope/vim-surround",
+    {
+        "kdheepak/lazygit.nvim",
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
+        },
+    },
     "stevearc/oil.nvim",
     {
         "ThePrimeagen/harpoon",

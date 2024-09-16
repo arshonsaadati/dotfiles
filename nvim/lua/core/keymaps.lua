@@ -91,4 +91,6 @@ vim.keymap.set("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
 
 -- Call insert link automatically when we start typing a link
 vim.keymap.set("i", "[[", "<cmd>Telekasten insert_link<CR>")
---
+
+-- Open LazyGit
+vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
