@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local utils = require("utils")
 local keybinds = require("keybinds")
-local scheme = wezterm.get_builtin_color_schemes()["nord"]
+local scheme = wezterm.get_builtin_color_schemes()["Catppuccin Mocha"]
 local act = wezterm.action
 
 -- selene: allow(unused_variable)

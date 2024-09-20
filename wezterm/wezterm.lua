@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local utils = require("utils")
 local keybinds = require("keybinds")
-local scheme = wezterm.get_builtin_color_schemes()["nord"]
+local scheme = wezterm.get_builtin_color_schemes()["Catppuccin Mocha"]
 local gpus = wezterm.gui.enumerate_gpus()
 require("on")
 
@@ -110,7 +110,35 @@ local config = {
     -- https://github.com/wez/wezterm/issues/1772
     -- https://github.com/wez/wezterm/issues/5103
     -- enable_wayland = false,
-    color_scheme = "nordfox",
+    color_scheme = 'Catppuccin Mocha',
+    background = {
+        {
+            source = {
+                Gradient = {
+                    colors = {
+                        'rgb(222, 189, 255)', -- Light pink with 50% opacity
+                        'rgb(162, 144, 244)', -- Soft purple with 50% opacity
+                    },
+                    orientation = {
+                        Linear = { angle = 135.0 },
+                    },
+                    interpolation = 'Linear',
+                    blend = 'LinearRgb',
+                },
+            },
+            width = '100%',
+            height = '100%',
+        },
+        {
+            source = {
+                Color = scheme.background, },
+            width = '100%',
+            height = '100%',
+            opacity = 0.9999,
+        },
+    },
+    window_background_opacity = 1.0,
+    -- Define a semi-transparent background gradient overlay
     color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
     hide_tab_bar_if_only_one_tab = false,
     adjust_window_size_when_changing_font_size = false,

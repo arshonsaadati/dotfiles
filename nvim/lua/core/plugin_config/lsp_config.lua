@@ -1,5 +1,5 @@
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "tailwindcss", "pyright", "clangd", "tsserver", "rust_analyzer", "gopls" }
+    ensure_installed = { "lua_ls", "tailwindcss", "pyright", "clangd", "ts_ls", "rust_analyzer", "gopls" }
 })
 
 local lspconfig = require('lspconfig')
@@ -77,7 +77,8 @@ require("lspconfig").clangd.setup {
 }
 require("lspconfig").rust_analyzer.setup({})
 require("lspconfig").pyright.setup({})
-require("lspconfig").tsserver.setup({})
+require("lspconfig").ts_ls.setup({})
+require("lspconfig").gopls.setup({})
 require("lspconfig").tailwindcss.setup({})
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -123,7 +124,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
 
         -- Map 'gr' to show references to the symbol under the cursor
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
 
         -- Map '<space>f' to format the current buffer
         vim.keymap.set('n', '<space>f', function()
