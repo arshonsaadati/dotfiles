@@ -7,8 +7,7 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 vim.api.nvim_set_keymap('n', '<Leader>o', 'o<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>O', 'O<Esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true })
-vim.keymap.set("i", "kj", "<Esc>", { noremap = true })
-vim.keymap.set("c", "kj", "<Esc>", { noremap = true })
+
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -20,10 +19,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+-- Show diagnostics
+vim.keymap.set('n', '<leader>y', vim.diagnostic.open_float)
 
 -- Set up remaps for hjkl navigation in Insert mode
 vim.api.nvim_set_keymap('i', '<C-h>', '<Left>', { noremap = true })
@@ -94,3 +91,9 @@ vim.keymap.set("i", "[[", "<cmd>Telekasten insert_link<CR>")
 
 -- Open LazyGit
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
+
+-- Toggle Aerial view
+vim.keymap.set("n", "<c-m>", "<cmd>AerialToggle!<CR>", { desc = "Toggle Aerial view" })
+
+-- Toggle NvimTree
+vim.keymap.set('n', '<c-n>', ':NvimTreeToggle<CR>')

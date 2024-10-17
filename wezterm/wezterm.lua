@@ -80,6 +80,7 @@ local config = {
     -- font = wezterm.font("Cica"),
     -- font_size = 10.0,
     font = wezterm.font("SFMono Nerd Font"),
+    hide_tab_bar_if_only_one_tab = true,
     font_size = 14.5,
     -- cell_width = 1.1,
     -- line_height = 1.1,
@@ -140,7 +141,6 @@ local config = {
     window_background_opacity = 1.0,
     -- Define a semi-transparent background gradient overlay
     color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
-    hide_tab_bar_if_only_one_tab = false,
     adjust_window_size_when_changing_font_size = false,
     selection_word_boundary = " \t\n{}[]()\"'`,;:│=&!%",
     window_padding = {

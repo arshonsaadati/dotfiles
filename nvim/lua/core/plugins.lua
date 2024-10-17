@@ -4,14 +4,25 @@ require("lazy").setup({
     "ThePrimeagen/vim-be-good",
     "mattn/emmet-vim",
     "nvim-tree/nvim-tree.lua",
+    'stevearc/aerial.nvim',
     "nvim-tree/nvim-web-devicons",
     "ellisonleao/gruvbox.nvim",
     "norcalli/nvim-colorizer.lua",
     "dracula/vim",
     "nvim-lualine/lualine.nvim",
     "nvim-treesitter/nvim-treesitter",
+    {
+        "max397574/better-escape.nvim",
+        config = function()
+            require("better_escape").setup()
+        end,
+    },
     "vim-test/vim-test",
     "HiPhish/rainbow-delimiters.nvim",
+    {
+        "shellRaining/hlchunk.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+    },
     "lewis6991/gitsigns.nvim",
     "preservim/vimux",
     "christoomey/vim-tmux-navigator",
@@ -27,6 +38,7 @@ require("lazy").setup({
             "LazyGitFilterCurrentFile",
         },
     },
+    'f-person/git-blame.nvim',
     "stevearc/oil.nvim",
     {
         "ThePrimeagen/harpoon",
@@ -79,6 +91,7 @@ require("lazy").setup({
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
     "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
