@@ -41,11 +41,6 @@ require("lazy").setup({
     'f-person/git-blame.nvim',
     "stevearc/oil.nvim",
     {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" }
-    },
-    {
         "kawre/leetcode.nvim",
         build = ":TSUpdate html",
         dependencies = {

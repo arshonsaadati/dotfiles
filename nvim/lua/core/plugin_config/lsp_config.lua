@@ -16,11 +16,14 @@ require("lspconfig").sourcekit.setup({
     root_dir = function(filename, _)
         local util = require("lspconfig.util")
 
-        return util.root_pattern("buildServer.json")(filename)
-            or util.root_pattern("*.xcodeproj", "*.xcworkspace")(filename)
-            or util.find_git_ancestor(filename)
-            or util.root_pattern("Package.swift")(filename)
-            or util.root_pattern("*.swift")(filename)
+        -- Only activate for Swift files
+        if filename:match("%.swift$") or filename:match("Package%.swift") then
+            return util.root_pattern("buildServer.json")(filename)
+                or util.root_pattern("*.xcodeproj", "*.xcworkspace")(filename)
+                or util.find_git_ancestor(filename)
+                or util.root_pattern("Package.swift")(filename)
+                or util.root_pattern("*.swift")(filename)
+        end
     end,
     capabilities = {
         require("cmp_nvim_lsp").default_capabilities(),

@@ -1,7 +1,10 @@
-require('telescope').setup({ file_ignore_patterns = { "node%_modules/.*" } })
 local builtin = require('telescope.builtin')
 local action_state = require('telescope.actions.state')
 local actions = require('telescope.actions')
+
+require('telescope').setup({
+    file_ignore_patterns = { "node%_modules/.*" },
+})
 
 -- Delete buffer(s) from the buffer list using Telescope
 local buffer_searcher
@@ -35,6 +38,16 @@ buffer_searcher = function()
     }
 end
 
+local function open_dotfiles()
+    builtin.find_files({
+        prompt_title = "< NVim Dotfiles >",
+        cwd = "~/.config/nvim",
+        hidden = true,
+        file_ignore_patterns = { "lazy%-lock%.json" }, -- Exclude lazy-lock.json
+    })
+end
+
+
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
@@ -45,6 +58,8 @@ vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iag
 vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 vim.keymap.set('n', '<leader><leader>', buffer_searcher, { desc = '[ ] Find existing buffers' })
+
+vim.api.nvim_create_user_command("TelescopeDotfiles", open_dotfiles, {})
 
 -- Slightly advanced example of overriding default behavior and theme
 vim.keymap.set('n', '<leader>/', function()
