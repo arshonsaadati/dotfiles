@@ -26,6 +26,13 @@ require("lazy").setup({
     "lewis6991/gitsigns.nvim",
     "preservim/vimux",
     "christoomey/vim-tmux-navigator",
+    {
+        'smoka7/hop.nvim',
+        version = "*",
+        opts = {
+            keys = 'etovxqpdygfblzhckisuran'
+        }
+    },
     "tpope/vim-fugitive",
     "tpope/vim-surround",
     {

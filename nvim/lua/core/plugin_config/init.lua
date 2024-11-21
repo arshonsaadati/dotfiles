@@ -1,6 +1,7 @@
 require("core.plugin_config.colorscheme")
 require("core.plugin_config.aerial")
 require("core.plugin_config.hlchunk")
+require("core.plugin_config.hop")
 require("core.plugin_config.colorizer")
 require("core.plugin_config.lualine")
 require("core.plugin_config.treesitter")
