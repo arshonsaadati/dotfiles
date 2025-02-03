@@ -1,0 +1,74 @@
+-- Autocmds are automatically loaded on the VeryLazy event
+-- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
+--
+-- Add any additional autocmds here
+-- with `vim.api.nvim_create_autocmd`
+--
+-- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
+-- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+--   callback = function()
+--     -- DVORAK mappings for insert mode including symbols
+--     local dvorak_mappings = {
+--       -- Letters
+--       ["a"] = "a",
+--       ["b"] = "x",
+--       ["c"] = "j",
+--       ["d"] = "e",
+--       ["e"] = ".",
+--       ["f"] = "u",
+--       ["g"] = "i",
+--       ["h"] = "d",
+--       ["i"] = "c",
+--       ["j"] = "h",
+--       ["k"] = "t",
+--       ["l"] = "n",
+--       ["m"] = "m",
+--       ["n"] = "b",
+--       ["o"] = "r",
+--       ["p"] = "l",
+--       ["q"] = "'",
+--       ["r"] = "p",
+--       ["s"] = "o",
+--       ["t"] = "y",
+--       ["u"] = "g",
+--       ["v"] = "k",
+--       ["w"] = ",",
+--       ["x"] = "q",
+--       ["y"] = "f",
+--       ["z"] = ";",
+--       -- Symbols
+--       ["["] = "/",
+--       ["]"] = "=",
+--       ["'"] = "-",
+--       [","] = "w",
+--       ["."] = "v",
+--       ["/"] = "[",
+--       [";"] = "s",
+--       ["="] = "]",
+--       ["-"] = "'",
+--     }
+--
+--     for from, to in pairs(dvorak_mappings) do
+--       vim.keymap.set("i", from, to, { buffer = true })
+--       -- Map uppercase for letters
+--       if from:match("%a") then
+--         vim.keymap.set("i", from:upper(), to:upper(), { buffer = true })
+--       end
+--     end
+--   end,
+--   desc = "Enable DVORAK mappings in insert mode",
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+--   callback = function()
+--     -- Clear all mappings when leaving insert mode
+--     local keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]',./;=-"
+--     for i = 1, #keys do
+--       local key = keys:sub(i, i)
+--       vim.keymap.del("i", key, { buffer = true })
+--     end
+--   end,
+--   desc = "Disable DVORAK mappings when leaving insert mode",
+-- })
