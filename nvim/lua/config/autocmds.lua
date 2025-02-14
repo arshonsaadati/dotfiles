@@ -7,68 +7,95 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- local dvorak_mappings = {
+--
+--   -- Letters
+--   ["a"] = "a",
+--   ["b"] = "x",
+--   ["c"] = "j",
+--   ["d"] = "e",
+--   ["e"] = ".",
+--   ["f"] = "u",
+--   ["g"] = "i",
+--   ["h"] = "d",
+--   ["i"] = "c",
+--   ["j"] = "h",
+--   ["k"] = "t",
+--   ["l"] = "n",
+--   ["m"] = "m",
+--   ["n"] = "b",
+--   ["o"] = "r",
+--   ["p"] = "l",
+--   ["q"] = "'",
+--   ["r"] = "p",
+--   ["s"] = "o",
+--   ["t"] = "y",
+--   ["u"] = "g",
+--   ["v"] = "k",
+--   ["w"] = ",",
+--   ["x"] = "q",
+--   ["y"] = "f",
+--   ["z"] = ";",
+--   -- Symbols
+--
+--   ["["] = "/",
+--   ["]"] = "=",
+--   ["'"] = "-",
+--   [","] = "w",
+--   ["."] = "v",
+--   ["/"] = "z",
+--   [";"] = "s",
+--   ["="] = "]",
+--   ["-"] = "[",
+--   ["\""] = "_",
+--   ["Q"] = "\"",
+-- }
+--
+-- -- Function to apply mappings for a specific mode
+-- local function apply_mappings(mode)
+--   for from, to in pairs(dvorak_mappings) do
+--     vim.keymap.set(mode, from, to, { buffer = true })
+--     if from:match("%a") then
+--       vim.keymap.set(mode, from:upper(), to:upper(), { buffer = true })
+--     end
+--   end
+-- end
+--
+-- -- Function to clear mappings for a specific mode
+-- local function clear_mappings(mode)
+--   local keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]',./;=-"
+--   for i = 1, #keys do
+--     local key = keys:sub(i, i)
+--     pcall(vim.keymap.del, mode, key, { buffer = true })
+--   end
+-- end
+--
+-- -- Set up autocommands for insert mode
 -- vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 --   callback = function()
---     -- DVORAK mappings for insert mode including symbols
---     local dvorak_mappings = {
---       -- Letters
---       ["a"] = "a",
---       ["b"] = "x",
---       ["c"] = "j",
---       ["d"] = "e",
---       ["e"] = ".",
---       ["f"] = "u",
---       ["g"] = "i",
---       ["h"] = "d",
---       ["i"] = "c",
---       ["j"] = "h",
---       ["k"] = "t",
---       ["l"] = "n",
---       ["m"] = "m",
---       ["n"] = "b",
---       ["o"] = "r",
---       ["p"] = "l",
---       ["q"] = "'",
---       ["r"] = "p",
---       ["s"] = "o",
---       ["t"] = "y",
---       ["u"] = "g",
---       ["v"] = "k",
---       ["w"] = ",",
---       ["x"] = "q",
---       ["y"] = "f",
---       ["z"] = ";",
---       -- Symbols
---       ["["] = "/",
---       ["]"] = "=",
---       ["'"] = "-",
---       [","] = "w",
---       ["."] = "v",
---       ["/"] = "[",
---       [";"] = "s",
---       ["="] = "]",
---       ["-"] = "'",
---     }
---
---     for from, to in pairs(dvorak_mappings) do
---       vim.keymap.set("i", from, to, { buffer = true })
---       -- Map uppercase for letters
---       if from:match("%a") then
---         vim.keymap.set("i", from:upper(), to:upper(), { buffer = true })
---       end
---     end
+--     apply_mappings("i")
 --   end,
 --   desc = "Enable DVORAK mappings in insert mode",
 -- })
 --
 -- vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 --   callback = function()
---     -- Clear all mappings when leaving insert mode
---     local keys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]',./;=-"
---     for i = 1, #keys do
---       local key = keys:sub(i, i)
---       vim.keymap.del("i", key, { buffer = true })
---     end
+--     clear_mappings("i")
 --   end,
 --   desc = "Disable DVORAK mappings when leaving insert mode",
+-- })
+--
+-- -- Set up autocommands for command mode
+-- vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
+--   callback = function()
+--     apply_mappings("c")
+--   end,
+--   desc = "Enable DVORAK mappings in command mode",
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "CmdlineLeave" }, {
+--   callback = function()
+--     clear_mappings("c")
+--   end,
+--   desc = "Disable DVORAK mappings when leaving command mode",
 -- })
