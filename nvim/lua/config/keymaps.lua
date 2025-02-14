@@ -5,10 +5,9 @@
 vim.api.nvim_set_keymap("n", "<Leader>o", "o<Esc>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>O", "O<Esc>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
-vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 
 -- don't clear register when pasting over visual selection
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("v", "<leader>p", [["_dP]])
 
 -- center the screen when jumping up or down
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -18,7 +17,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- Set up remaps for hjkl navigation in Insert mode
 vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", { noremap = true })
-vim.api.nvim_set_keymap("i", "<C-j>", "<Down>", { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-l>", "<Right>", { noremap = true })
 
 -- Set up a custom hotkey for quitting Neovim
 vim.api.nvim_set_keymap("n", "<C-q>", ":q<CR>", { noremap = true, silent = true })
