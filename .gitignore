@@ -3,3 +3,6 @@ wireshark/
 github-copilot
 envman
 .DS_Store
+nvim_old
+thefuck
+tmux/plugins
