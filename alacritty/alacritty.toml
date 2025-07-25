@@ -1,0 +1,17 @@
+general.import = [
+    "~/.config/alacritty/alacritty-theme/themes/tokyo_night_moon.toml",
+]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+decorations = "Buttonless"
+option_as_alt = "Both"
+
+[font]
+normal = { family = "SFMono Nerd Font", style = "Light" }
+bold = { family = "SFMono Nerd Font", style = "Medium" }               # or "Semibold" instead of the default "Bold"
+italic = { family = "SFMono Nerd Font", style = "Italic" }
+bold_italic = { family = "SFMono Nerd Font", style = "Medium Italic" }
+size = 14.5
