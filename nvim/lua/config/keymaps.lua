@@ -31,25 +31,35 @@ vim.keymap.set("n", "<leader>dd", '"_dd')
 local hop = require("hop")
 local directions = require("hop.hint").HintDirection
 vim.keymap.set("", "f", function()
-  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+    hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
 end, { remap = true })
 vim.keymap.set("", "F", function()
-  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+    hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
 end, { remap = true })
 vim.keymap.set("", "t", function()
-  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+    hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
 end, { remap = true })
 vim.keymap.set("", "T", function()
-  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+    hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
 end, { remap = true })
 vim.keymap.set("", "S", function()
-  hop.hint_char2()
+    hop.hint_char2()
 end, { remap = true })
 
 -- Copy filepath to clipboard
 function insertFullPath()
-  local filepath = vim.fn.expand("%")
-  vim.fn.setreg("+", filepath) -- write to clippoard
+    local filepath = vim.fn.expand("%")
+    vim.fn.setreg("+", filepath) -- write to clippoard
 end
 
 vim.keymap.set("n", "<leader>yp", insertFullPath, { noremap = true, silent = true })
+
+-- XcodeBuild
+vim.keymap.set("n", "<leader>xr", "<cmd>XcodebuildBuildRun<cr>", { desc = "Build & Run Project" })
+vim.keymap.set("n", "<leader>xb", "<cmd>XcodebuildBuild<cr>", { desc = "Build Project" })
+
+-- remap arrow keys in visual and normal mode
+vim.keymap.set({ "n", "v", "o" }, "<Left>", "^", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "o" }, "<Right>", "$", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<Up>", "gg", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<Down>", "G", { noremap = true, silent = true })

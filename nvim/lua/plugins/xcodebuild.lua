@@ -1,14 +1,21 @@
 return {
-  "wojciech-kulik/xcodebuild.nvim",
-  logs = {
-    auto_open_on_success_tests = false,
-    auto_open_on_failed_tests = true,
-    auto_open_on_success_build = false,
-    auto_open_on_failed_build = true,
-    auto_focus = false,
-    auto_close_on_app_launch = true,
-  },
-  code_coverage = {
-    enabled = true,
-  },
+    "wojciech-kulik/xcodebuild.nvim",
+    dependencies = {
+        -- Uncomment a picker that you want to use, snacks.nvim might be additionally
+        -- useful to show previews and failing snapshots.
+
+        -- You must select at least one:
+        -- "nvim-telescope/telescope.nvim",
+        -- "ibhagwan/fzf-lua",
+        -- "folke/snacks.nvim", -- (optional) to show previews
+
+        "MunifTanjim/nui.nvim",
+        "stevearc/oil.nvim",               -- (optional) to manage project files
+        "nvim-treesitter/nvim-treesitter", -- (optional) for Quick tests support (required Swift parser)
+    },
+    config = function()
+        require("xcodebuild").setup({
+            -- put some options here or leave it empty to use default settings
+        })
+    end,
 }

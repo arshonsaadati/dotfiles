@@ -99,3 +99,7 @@
 --   end,
 --   desc = "Disable DVORAK mappings when leaving command mode",
 -- })
+-- make naw noautocommand w
+vim.api.nvim_create_user_command('Naw', function()
+    vim.cmd.write({ mods = { noautocmd = true } })
+end, {})
